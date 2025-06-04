@@ -13,11 +13,15 @@ import { TodoGroup } from "./components/TodoGroup"
 
 function App() {
 
-  const { todos, addTodo, showDialog, openFormTodoDialog, closeFormTodoDialog, selectedTodo } = use(TodoContext)
+  const { todos, addTodo, showDialog, openFormTodoDialog, closeFormTodoDialog, selectedTodo, editTodo } = use(TodoContext)
   
   const handleFormSubmit = (formData) => {
-    addTodo(formData)
-    openFormTodoDialog()
+    if (selectedTodo) {
+      editTodo(formData)
+    } else {
+      addTodo(formData)
+    }
+    closeFormTodoDialog()
   }
 
   return (
@@ -44,7 +48,7 @@ function App() {
                 defaultValue={selectedTodo?.description}  
               />
             </Dialog>
-            <FabButton onClick={openFormTodoDialog} >
+            <FabButton onClick={() => openFormTodoDialog()} >
               <IconPlus />
             </FabButton>
           </Footer>
