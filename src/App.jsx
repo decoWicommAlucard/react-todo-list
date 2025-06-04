@@ -103,6 +103,12 @@ function App() {
     })
   }
 
+  const deleteTodo = (todo) => {
+    setTodos(prevState => {
+      return prevState.filter(t => t.id != todo.id)
+    })
+  }
+
   return (
     <main>
       <Container>
@@ -112,18 +118,43 @@ function App() {
           </Heading>
         </Header>
         <ChecklistsWrapper>
-          <SubHeading>Para estudar</SubHeading>
+
+          {/* <TodoGroup
+            heading="Para estudar"
+            items={todos.filter(t => !t.completed)}
+            onToggleCompleted={toggleTodoCompleted}
+            onDeleteTodo={deleteTodo}
+          />
+
+          <TodoGroup
+            heading="Concluído"
+            items={todos.filter(t => t.completed)}
+            onToggleCompleted={toggleTodoCompleted}
+            onDeleteTodo={deleteTodo}
+          /> */}
+
+          {/* <SubHeading>Para estudar</SubHeading>
           <ToDoList>
             {todos.filter(t => !t.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted} />
+              return <ToDoItem
+                key={t.id}
+                item={t}
+                onToggleCompleted={toggleTodoCompleted}
+                onDeleteTodo={deleteTodo}
+              />
             })}
           </ToDoList>
           <SubHeading>Concluído</SubHeading>
           <ToDoList>
             {todos.filter(t => t.completed).map(function (t) {
-              return <ToDoItem key={t.id} item={t} onToggleCompleted={toggleTodoCompleted}/>
+              return <ToDoItem
+                key={t.id}
+                item={t}
+                onToggleCompleted={toggleTodoCompleted}
+                onDeleteTodo={deleteTodo}
+              />
             })}
-          </ToDoList>
+          </ToDoList> */}
           <Footer>
             <Dialog isOpen={showDialog} onClose={toggleDialog}>
               <TodoForm onSubmit={addTodo} />
