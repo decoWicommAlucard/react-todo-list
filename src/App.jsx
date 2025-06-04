@@ -10,6 +10,7 @@ import { IconPlus, IconSchool } from "./components/icons"
 import { TodoForm } from "./components/TodoForm"
 import TodoContext from "./components/TodoProvider/TodoContext"
 import { TodoGroup } from "./components/TodoGroup"
+import { EmptyState } from "./components/EmptyState"
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
             heading="Para estudar"
             items={todos.filter(t => !t.completed)}
           />
+          {todos.length == 0 && <EmptyState />}
           <TodoGroup
             heading="Concluído"
             items={todos.filter(t => t.completed)}
