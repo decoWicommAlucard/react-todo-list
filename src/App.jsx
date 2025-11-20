@@ -10,6 +10,7 @@ import { IconPlus, IconSchool } from './components/icons'
 import { SubHeading } from './components/SubHeading'
 import { ToDoItem } from './components/ToDoItem'
 import { ToDoList } from './components/ToDoList'
+import Form from './components/Form'
 
 const todos = [
   {
@@ -61,7 +62,7 @@ function App() {
 
   return (
     <main>
-      <Container>
+      {/* <Container>
         <Header>
           <Heading>
             <IconSchool /> Plano de estudos
@@ -89,6 +90,9 @@ function App() {
             </FabButton>
           </Footer>
         </ChecklistsWrapper>
+      </Container> */}
+      <Container>
+        <Form />
       </Container>
     </main>
   )
