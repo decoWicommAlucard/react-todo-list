@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import './dialog.style.css'
-export function Dialog({ isOpen, toggleDialog }) {
+import { IconClose } from '../icons'
+export function Dialog({ isOpen, toggleDialog, children }) {
   const dialogRef = useRef(null)
 
   useEffect(() => {
@@ -25,11 +26,13 @@ export function Dialog({ isOpen, toggleDialog }) {
 
   return (
     <>
-      <dialog ref={dialogRef} className="dialog-backdrop">
-        <button autoFocus onClick={toggleDialog}>
-          Close
-        </button>
-        <p>This modal dialog has a groovy backdrop!</p>
+      <dialog ref={dialogRef} className="dialog">
+        <div className="close-btn-wrapper">
+          <button autoFocus onClick={toggleDialog} className="btn-close">
+            <IconClose />
+          </button>
+        </div>
+        {children}
       </dialog>
     </>
   )
