@@ -21,7 +21,6 @@ export function Dialog({ isOpen, toggleDialog }) {
     if (dialogRef.current) {
       dialogRef.current.close()
     }
-    
   }
 
   return (
