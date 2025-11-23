@@ -32,7 +32,7 @@ export function Dialog({ isOpen, toggleDialog, children }) {
             <IconClose />
           </button>
         </div>
-        {children}
+        <div className="body">{children}</div>
       </dialog>
     </>
   )
